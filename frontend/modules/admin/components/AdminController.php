@@ -1,0 +1,13 @@
+<?php
+
+class AdminController extends RController
+{
+	
+	const WAREHOUSE_MENU_ITEM = "WAREHOUSE";
+	const TRADING_ROOM_MENU_ITEM = "TRADING_ROOM ";
+	const WORKERS_MENU_ITEM = "WORKERS";
+	const SUPPLIERS_MENU_ITEM = "SUPPLIERS";
+	const PRODUCTS_MENU_ITEM = "PRODUCTS";
+	const REPORTS_MENU_ITEM = "REPORTS";
+	
+}

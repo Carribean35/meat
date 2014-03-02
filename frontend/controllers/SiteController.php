@@ -9,24 +9,43 @@
  * @copyright 2013 2amigOS! Consultation Group LLC
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
-class SiteController extends EController
+class SiteController extends RController
 {
 	public function actionIndex()
 	{
 		$this->render('index');
 	}
-
-	/**
-	 * This is the action to handle external exceptions.
-	 */
+	
 	public function actionError()
 	{
 		if($error=Yii::app()->errorHandler->error)
-		{
-			if(Yii::app()->request->isAjaxRequest)
-				echo $error['message'];
-			else
-				$this->render('error', $error);
+			$this->render('error', $error);
+	}
+	
+	public function actionLogin() {
+		
+		$this->layout = '//layouts/login';
+		$model = new LoginForm();
+		
+		/**
+		 * @var CWebUser $user
+		*/
+		$user = Yii::app()->user;
+		if (!$user->isGuest) {
+			$this->redirect(Yii::app()->user->returnUrl);
 		}
+		if(isset($_POST['LoginForm']))
+		{
+			$model->attributes=$_POST['LoginForm'];
+		
+			if($model->validate() && $model->login()) {
+				$this->redirect('/admin/warehouse/');
+			}
+		}
+		
+		$this->render('login',array(
+			'model'=>$model,
+		));
+		
 	}
 }

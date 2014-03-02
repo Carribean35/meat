@@ -11,9 +11,9 @@ return array(
 	'components' => array(
 // 		change to suit your needs
 		'db' => array(
-			'connectionString' => 'mysql:host=localhost;dbname=base',
-			'username' => 'base',
-			'password' => 'base',
+			'connectionString' => 'mysql:host=localhost;dbname=meat',
+			'username' => 'meat',
+			'password' => 'meat',
 			'enableProfiling' => true,
 			'enableParamLogging' => true,
 			'charset' => 'utf8',
