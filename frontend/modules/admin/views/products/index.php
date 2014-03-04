@@ -11,21 +11,29 @@
 				<thead>
 					<tr>
 						<td>Наименование продукции</td>
+						<td>Место</td>
 						<td>Цена</td>
 						<td>Измерение (кг)</td>
+						<td></td>
 					</tr>
 				</thead>
 				<tbody>
+					<?php foreach ($model->search()->getData() AS $key => $val) :?>
 					<tr>
-						<td>1</td>
-						<td>2</td>
-						<td>3</td>
+						<td><?php echo $val->product->name?></td>
+						<td><?php echo $val->place[$val['idPlace']]?></td>
+						<td><?php echo $val->price?></td>
+						<td><?php echo $val->measuring?></td>
+						<td><a href="/admin/products/delete/<?php echo $val->id?>/" class="confirmDelete">x</a></td>
 					</tr>
+					<?php endforeach;?>
 				</tbody>
 			</table>
 			
 		</div>
-		<div class="button center-button">Добавить</div>
+		<a href="/admin/products/item/" class="noLine">
+			<div class="button center-button">Добавить</div>
+		</a>
 	</div>
 </div><!-- .content-->
 <div class="content-shadow">

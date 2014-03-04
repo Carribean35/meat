@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 	$header
 );
 
-$this->menuActiveItems[EController::ACCESS_MENU_ITEM] = 1;
+$this->menuActiveItems[BController::ACCESS_MENU_ITEM] = 1;
 ?>
 <div>
 

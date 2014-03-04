@@ -57,6 +57,20 @@ body {
 	width: 100%;
 	height: 100%;
 }
+
+a {
+	color: #000000;
+	text-decoration: none;	
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a.noLine {
+	text-decoration: none;
+}
+
 .wrapper {
 	width: 1280px;
 	margin: 60px auto 0;
@@ -141,6 +155,9 @@ body {
 	cursor: pointer;
 	width: 205px;
 	text-align: center;
+	padding: 0;
+	margin: 0;
+	border: 0;
 }
 
 .button:before {
@@ -291,6 +308,50 @@ body {
 	left: 175px;
 }
 
+.input-block-horizontal {
+	margin: 5px 0;	
+}
+
+.input {
+	height: 26px;
+	line-height: 26px;
+	font-size: 14px;	
+}
+
+.error-message {
+	color: #B94A48;	
+}
+
+.select {
+	height: 32px;
+	font-size: 14px;
+	padding: 3px 0;	
+}
+
+.input.input-medium {
+	width: 350px;	
+}
+
+.input.input-small {
+	width: 100px;	
+}
+
+.input-block-horizontal .input {
+	margin-left: 20px;
+}
+
+.input-block-horizontal label{
+	line-height: 32px;
+	font-size: 14px;
+	width: 200px;
+	display: block;
+	float: left;
+}
+
+.input-block-horizontal .error-message {
+	display: inline-block;
+}
+
 .clear {
 	clear: both;
 }
@@ -324,4 +385,15 @@ body {
 
 .table-width-1 {
 	width: 1%;	
+}
+
+.width1280 {
+	width: 1280px;
+	margin: 0 auto;	
+}
+
+.grad-line .exit {
+	line-height: 26px;
+	float: right;
+	color: #ffffff;
 }

@@ -39,7 +39,15 @@ class SiteController extends RController
 			$model->attributes=$_POST['LoginForm'];
 		
 			if($model->validate() && $model->login()) {
-				$this->redirect('/admin/warehouse/');
+				if (Yii::app()->user->type == 'Admin')
+					$this->redirect('/admin/warehouse/');
+				
+				if (Yii::app()->user->type == 'WorkerWarehouse')
+					$this->redirect('/warehouse/main/');
+				
+				if (Yii::app()->user->type == 'WorkerTradingRoom')
+					$this->redirect('/tradingroom/main/');
+				
 			}
 		}
 		
@@ -47,5 +55,10 @@ class SiteController extends RController
 			'model'=>$model,
 		));
 		
+	}
+	
+	public function actionLogout() {
+		Yii::app()->user->logout();
+		$this->redirect('/');
 	}
 }

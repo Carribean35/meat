@@ -55,6 +55,12 @@ return array(
 		'admin'=>array(
 		
 		),
+		'warehouse'=>array(
+		
+		),
+		'tradingroom'=>array(
+		
+		),
 	),
 
 	// application components
@@ -121,5 +127,12 @@ return array(
 		'application.modules.rights.components.*',
 		'application.modules.admin.*',
 		'application.modules.admin.components.*',
+		'application.modules.admin.models.*',
+		'application.modules.warehouse.*',
+		'application.modules.warehouse.components.*',
+		'application.modules.warehouse.models.*',
+		'application.modules.tradingroom.*',
+		'application.modules.tradingroom.components.*',
+		'application.modules.tradingroom.models.*',
 	),
 );

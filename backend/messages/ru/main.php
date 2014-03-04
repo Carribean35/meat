@@ -9,4 +9,6 @@ return array(
 	'Confirm Password Validate Error'=>'Введенные пароли не совпадают',
 	'Edit'=>'Редактировать',
 	'Delete'=>'Удалить',
+	'Name'=>'Название',
+	'Login'=>'Логин',
 );

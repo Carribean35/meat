@@ -5,15 +5,30 @@ class UserIdentity extends CUserIdentity
 	
 	public function authenticate()
 	{
-		$record=Admins::model()->findByAttributes(array('email'=>$this->username));
+		$record = Market::model()->findByAttributes(array('login'=>$this->username));
+		
+		if($record===null)
+			$record = Worker::model()->findByAttributes(array('login'=>$this->username));
+
 		if($record===null)
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		else if($record->password!==crypt($this->password,$record->password))
+		else if($record->password!==crypt($this->password, $record->getSoult($this->password)))
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;
 		else
 		{
 			$this->_id=$record->id;
-// 			$this->setState('title', $record->title);
+			if (get_class($record) == 'Market') {
+				$type = 'Admin';
+				$idMarket = $record->id;
+			} else if (get_class($record) == 'Worker') {
+				if ($record->idPlace == 1)
+					$type = 'WorkerWarehouse';
+				else 
+					$type = 'WorkerTradingRoom';
+				$idMarket = $record->idMarket;
+			}
+			$this->setState('type', $type);
+			$this->setState('idMarket', $idMarket);
 			$this->errorCode=self::ERROR_NONE;
 		}
 		return !$this->errorCode;

@@ -14,26 +14,30 @@
 						<td>ФИО</td>
 						<td>Паспортные данные</td>
 						<td>Телефон</td>
+						<td>Место</td>
+						<td>Логин</td>
+						<td class="table-width-1"></td>
 					</tr>
 				</thead>
 				<tbody>
+					<?php foreach ($model->search()->getData() AS $key => $val) :?>
 					<tr>
-						<td>1</td>
-						<td>2</td>
-						<td>3</td>
-						<td>4</td>
+						<td><?php echo $key + 1;?></td>
+						<td><?php echo $val->fio?></td>
+						<td><?php echo $val->pasport?></td>
+						<td><?php echo $val->phone?></td>
+						<td><?php echo $val->place[$val['idPlace']]?></td>
+						<td><?php echo $val->login?></td>
+						<td><a href="/admin/workers/delete/<?php echo $val->id?>/" class="confirmDelete">x</a></td>
 					</tr>
-					<tr>
-						<td>1</td>
-						<td>2</td>
-						<td>3</td>
-						<td>4</td>
-					</tr>
+					<?php endforeach;?>
 				</tbody>
 			</table>
 			
 		</div>
-		<div class="button center-button">Добавить</div>
+		<a href="/admin/workers/item/" class="noLine">
+			<div class="button center-button">Добавить</div>
+		</a>
 	</div>
 </div><!-- .content-->
 <div class="content-shadow">

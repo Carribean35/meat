@@ -15,10 +15,12 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php foreach ($model->search()->getData() AS $key => $val) :?>
 					<tr>
-						<td>1</td>
-						<td>2</td>
+						<td><?php echo $val->product->name?></td>
+						<td><?php echo $val->weight?></td>
 					</tr>
+					<?php endforeach;?>
 				</tbody>
 			</table>
 			
